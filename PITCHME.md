@@ -104,12 +104,15 @@ For infrastructure.
 ## Let's build an image
 ...or let's use an existent one! :)
 
-#VSLIDE
+#VSLIDE?image=assets/images/percona-docker-hub.png
 
 ## Percona Server Docker images
 ### Enter Docker Hub
 
-1111sss---------lkmed vekf v- Images----=
+- Images made by Docker (the company)
+- Images made by users. Percona have official images
+
+https://hub.docker.com/r/percona/percona-server/
 
 #HSLIDE
 
