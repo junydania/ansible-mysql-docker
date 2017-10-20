@@ -78,11 +78,38 @@ For infrastructure.
 
 ## The Trinity
 
-<p style="width: 10%; height:10%; margin: 0 auto;">
+<p style="width: 15%; height:15%; margin: 0 auto;">
 ![Docker](assets/images/docker.png)
 ![Vagrant](assets/images/vagrant.png)
 ![AWS EC2](assets/images/ec2.jpg)
 </p>
+
+#VSLIDE
+
+- When Docker?
+- When a VM with Vagrant (+ VirtualBox)?
+- When EC2?
+- ...and when on the customer's infrastructure???
+
+#VSLIDE
+
+## Docker images
+
+- A bunch of layers. 
+- As described in a "Dockerfile"
+- We need a Docker image with MySQL
+
+#VSLIDE
+
+## Let's build an image
+...or let's use an existent one! :)
+
+#VSLIDE
+
+## Percona Server Docker images
+### Enter Docker Hub
+
+1111sss---------lkmed vekf v- Images----=
 
 #HSLIDE
 
