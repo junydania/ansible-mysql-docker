@@ -43,9 +43,9 @@ Percona Server for MySQL® is a free, fully compatible, enhanced, open source dr
 - Is an open-source relational database management system (RDBMS) <!-- .element: class="fragment" data-fragment-index="1" -->
 - Used by far more companies than you probably think <!-- .element: class="fragment" data-fragment-index="2" -->
 - With more features than you can use (or not :) ) <!-- .element: class="fragment" -->
-- Being the <strong>Replication</strong>, the feature that we need to put focus today. <!-- .element: class="fragment" -->\
+- Being the replication, the feature that we need to put focus today. <!-- .element: class="fragment" -->
 
-<p style="max-width: 70%; margin: 0 auto;">
+<p style="width: 70%; height:50%; margin: 0 auto;">
 ![MySQL](assets/images/mysql.png)
 </p>
 
@@ -58,8 +58,9 @@ mysql> show slave status\G
                   Master_Host: mysql1
 ```
 
+<p style="max-width: 70%; margin: 0 auto;">
 ![Replication](assets/images/replication.png)
-
+</p>
 <!--
 MySQL’s built-in replication is the foundation for building large, high-performance applications on top of MySQL, using the so-called “scale-out” architecture. Replication lets you configure one or more servers as replicas1 of another server, keeping their data synchronized with the master copy. This is not just useful for high-performance applications—it is also the cornerstone of many strategies for high availability, scala- bility, disaster recovery, backups, analysis, data warehousing, and many other tasks. In fact, scalability and high availability are related topics.
 -->
