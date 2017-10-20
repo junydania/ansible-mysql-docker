@@ -78,13 +78,13 @@ For infrastructure.
 
 ## The Trinity
 
-<p style="max-width: 70%; margin: 0 auto;">
+<p style="width: 30%; height:30%; margin: 0 auto;">
 ![Docker](assets/images/docker.png)
 </p>
-<p style="max-width: 70%; margin: 0 auto;">
+<p style="width: 30%; height:30%; margin: 0 auto;">
 ![Vagrant](assets/images/vagrant.png)
 </p>
-<p style="max-width: 70%; margin: 0 auto;">
+<p style="width: 30%; height:30%; margin: 0 auto;">
 ![AWS EC2](assets/images/ec2.jpg)
 </p>
 
