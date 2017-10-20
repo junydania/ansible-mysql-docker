@@ -30,11 +30,10 @@
 
 ## What is Percona Server?
 
-- Percona Server for MySQL® is a free, fully compatible, enhanced, open source drop-in replacement for MySQL <!-- .element: class="fragment" data-fragment-index="1" -->
+Percona Server for MySQL® is a free, fully compatible, enhanced, open source drop-in replacement for MySQL 
 
 <p style="max-width: 70%; margin: 0 auto;">
 ![Percona Server](assets/images/percona-server-web.png)
-<figcaption>http://www.percona.com</figcaption>
 </p>
 
 #VSLIDE
