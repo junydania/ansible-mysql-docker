@@ -104,7 +104,7 @@ For infrastructure.
 ## Let's build an image
 ...or let's use an existent one! :)
 
-#VSLIDE?image=assets/images/percona-docker-hub.png
+#VSLIDE
 
 ## Percona Server Docker images
 ### Enter Docker Hub
@@ -112,7 +112,33 @@ For infrastructure.
 - Images made by Docker (the company)
 - Images made by users. Percona have official images
 
+#VSLIDE?image=assets/images/percona-docker-hub.png
+
 https://hub.docker.com/r/percona/percona-server/
+
+#VSLIDE
+
+## How does a Dockerfile looks like?
+
+```
+FROM debian:jessie
+MAINTAINER Percona Development <info@percona.com>
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+                apt-transport-https ca-certificates \
+                pwgen \
+        && rm -rf /var/lib/apt/lists/*
+
+RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 8507EFA5
+RUN echo 'deb https://repo.percona.com/apt jessie testing' > /etc/apt/sources.list.d/percona.list
+
+# the numeric UID is needed for OpenShift
+RUN useradd -u 1001 -r -g 0 -s /sbin/nologin \
+            -c "Default Application User" mysql
+
+ENV PERCONA_MAJOR 5.7
+ENV PERCONA_VERSION 5.7.18-16-4.jessie
+```
 
 #HSLIDE
 
