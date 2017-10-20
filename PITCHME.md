@@ -41,10 +41,13 @@ Percona Server for MySQL® is a free, fully compatible, enhanced, open source dr
 ## What is MySQL?
 
 - Is an open-source relational database management system (RDBMS) <!-- .element: class="fragment" data-fragment-index="1" -->
-- Is THE RDBMS <!-- .element: class="fragment" data-fragment-index="2" -->
-- Used by far more companies that you expect <!-- .element: class="fragment" data-fragment-index="2" -->
+- Used by far more companies than you probably think <!-- .element: class="fragment" data-fragment-index="2" -->
 - With more features than you can use (or not :) ) <!-- .element: class="fragment" -->
-- Being the Replication, the feature that we need to put focus in here. <!-- .element: class="fragment" -->
+- Being the <strong>Replication</strong>, the feature that we need to put focus today. <!-- .element: class="fragment" -->\
+
+<p style="max-width: 70%; margin: 0 auto;">
+![MySQL](assets/images/mysql.png)
+</p>
 
 #VSLIDE
 
