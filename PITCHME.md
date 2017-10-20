@@ -6,10 +6,10 @@
 
 #VSLIDE?image=assets/images/cali.jpg
 
-### <span style="color:#37342e; background-color:#0e2a357F">Daniel Guzman Burgos</span> 
-##### <span style="color:#37342e">electronic engineer</span> 
-##### <span style="color:#37342e">Tech Lead MySQL at Percona in Cali, Colombia</span> 
-##### <span style="color:#37342e">Managed services POD Team</span> 
+### <span style="color:#ede8e7; background-color:#0e2a35BF">Daniel Guzman Burgos</span> 
+##### <span style="color:#ede8e7; background-color:#0e2a35BF">electronic engineer</span> 
+##### <span style="color:#ede8e7; background-color:#0e2a35BF">Tech Lead MySQL at Percona in Cali, Colombia</span> 
+##### <span style="color:#ede8e7; background-color:#0e2a35BF">Managed services POD Team</span> 
 
 #VSLIDE
 
