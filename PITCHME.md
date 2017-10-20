@@ -71,6 +71,22 @@ MySQL’s built-in replication is the foundation for building large, high-perfor
 #VSLIDE
 
 ## Docker because is light
+### But is not the best option. 
+For infrastructure.
+
+#VSLIDE
+
+## The Trinity
+
+<p style="max-width: 70%; margin: 0 auto;">
+![Docker](assets/images/docker.png)
+</p>
+<p style="max-width: 70%; margin: 0 auto;">
+![Vagrant](assets/images/vagrant.png)
+</p>
+<p style="max-width: 70%; margin: 0 auto;">
+![AWS EC2](assets/images/ec2.jpg)
+</p>
 
 #HSLIDE
 
