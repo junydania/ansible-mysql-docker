@@ -111,6 +111,8 @@ For infrastructure.
 
 - Images made by Docker (the company)
 - Images made by users. Percona have official images
+- No need to build anything
+- Ready to pull
 
 #VSLIDE?image=assets/images/percona-docker-hub.png
 
@@ -138,6 +140,36 @@ RUN useradd -u 1001 -r -g 0 -s /sbin/nologin \
 
 ENV PERCONA_MAJOR 5.7
 ENV PERCONA_VERSION 5.7.18-16-4.jessie
+```
+https://github.com/percona/percona-docker/blob/master/percona-server/Dockerfile
+
+#VSLIDE
+
+## Docker container (for real)
+```
+docker run
+```
+
+#VSLIDE
+
+## Docker container (for real)
+### Ingredients
+
+- An image (check)
+- A network
+- A shared volume (in this case, just a shared file)
+- An exposed port (MySQL default port: 3306)
+
+#VSLIDE
+
+## Docker networking
+
+- Make sure all the containers share the same subnet
+- Take advantage of the built-in DNS
+- Cleaner
+
+```
+docker network create <name>
 ```
 
 #HSLIDE
