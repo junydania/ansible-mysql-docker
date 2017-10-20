@@ -45,7 +45,7 @@ Percona Server for MySQL® is a free, fully compatible, enhanced, open source dr
 - With more features than you can use (or not :) ) <!-- .element: class="fragment" -->
 - Being the replication, the feature that we need to put focus today. <!-- .element: class="fragment" -->
 
-<p style="width: 70%; height:50%; margin: 0 auto;">
+<p style="width: 30%; height:30%; margin: 0 auto;">
 ![MySQL](assets/images/mysql.png)
 </p>
 
