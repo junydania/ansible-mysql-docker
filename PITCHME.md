@@ -2,41 +2,40 @@
 
 ## Docker container for <span style="color:#e49436">MySQL</span> 
 #### Without the Frustration 
-#####(Thanks to <span style="color:#e49436">Ansible</span>)
+(Thanks to <span style="color:#e49436">Ansible</span>)
 
 #VSLIDE?image=assets/images/cali.jpg
 
-### Daniel Guzman Burgos
-##### electronic engineer
-##### Tech Lead MySQL at <span class="pd-green">Percona</span> in Cali, Colombia
-##### Managed services POD Team
+### <span style="color:#37342e">Daniel Guzman Burgos</span> 
+##### <span style="color:#37342e">electronic engineer</span> 
+##### <span style="color:#37342e">Tech Lead MySQL at Percona in Cali, Colombia</span> 
+##### <span style="color:#37342e">Managed services POD Team</span> 
 
-#VSLIDE?image=assets/images/pagerduty_brand_stamp.png
+#VSLIDE
 
 ## What is Percona?
 
-- Percona is the only company that delivers enterprise-class support, consulting, managed services and software <!-- .element: class="fragment" data-fragment-index="1" -->
+- The only company that delivers enterprise-class support, consulting, managed services and software <!-- .element: class="fragment" data-fragment-index="1" -->
 - MySQL® <!-- .element: class="fragment" data-fragment-index="2" -->
 - MariaDB® <!-- .element: class="fragment" data-fragment-index="2" -->
 - MongoDB® <!-- .element: class="fragment" data-fragment-index="2" -->
-- and other open source databases across on-premise and cloud-based platforms. <!-- .element: class="fragment" -->
-- 3000 clients worldwide <!-- .element: class="fragment" -->
-- employs a global network of experts with a staff of over 140 people <!-- .element: class="fragment" -->
+- And other open source databases across on-premise and cloud-based platforms. <!-- .element: class="fragment" -->
+- 3000 clients worldwide / Employs a global network of experts with a staff of over 140 people <!-- .element: class="fragment" -->
 
 #HSLIDE
 
 # Percona Server and MySQL
 
-#VSLIDE?image=assets/images/pagerduty_brand_stamp.png
+#VSLIDE
 
 ## What is Percona Server?
 
 - Percona Server for MySQL® is a free, fully compatible, enhanced, open source drop-in replacement for MySQL <!-- .element: class="fragment" data-fragment-index="1" -->
 
-![Old dev docs](assets/images/old-dev-docs.png)
-<figcaption>https://web.archive.org/web/20130116145245/http://developer.pagerduty.com/</figcaption>
+![Percona Server](assets/images/percona-server-web.png)
+<figcaption>http://www.percona.com</figcaption>
 
-#VSLIDE?image=assets/images/pagerduty_brand_stamp.png
+#VSLIDE
 
 ## What is MySQL?
 
@@ -55,7 +54,7 @@ mysql> show slave status\G
                   Master_Host: mysql1
 ```
 
-![API refactor](assets/images/replication.png)
+![Replication](assets/images/replication.png)
 
 <!--
 MySQL’s built-in replication is the foundation for building large, high-performance applications on top of MySQL, using the so-called “scale-out” architecture. Replication lets you configure one or more servers as replicas1 of another server, keeping their data synchronized with the master copy. This is not just useful for high-performance applications—it is also the cornerstone of many strategies for high availability, scala- bility, disaster recovery, backups, analysis, data warehousing, and many other tasks. In fact, scalability and high availability are related topics.
@@ -63,7 +62,7 @@ MySQL’s built-in replication is the foundation for building large, high-perfor
 
 #HSLIDE
 
-# Research
+# Docker
 
 <!--
 As with any project, the first thing to do is gather information. Figure out what you want to do with your new API version. Chances are, there are some things about the current version you aren’t too happy with, so start by finding better ways and identifying problems you didn’t even realize existed.
@@ -122,7 +121,7 @@ Protocols/media types like OData, JSON API, GData, or GraphQL, Siren have done a
 
 #HSLIDE
 
-# Plan
+# Ansible
 
 #VSLIDE?image=assets/images/bike-shed.jpg
 
@@ -282,263 +281,11 @@ Here’s one thing we experimented with: using knowledge of our Rails codebase t
 
 #HSLIDE
 
-# Document
+# Hands on!
 
 #VSLIDE?image=assets/images/maintainable.jpg
 
 ## Keep it maintainable
-
-#VSLIDE?gist=956f25b0d2c3f064c278529fc475da18
-
-#VSLIDE
-
-## Domain-specific technologies
-
-![API Spec Formats](assets/images/api-specs.png)
-
-#VSLIDE?gist=44dca2fec85c13810f1c102bacedfa1e
-
-#VSLIDE?image=assets/images/remember-the-humans.jpg
-
-## Consider the Humans
-
-#VSLIDE
-
-![Stripe API Documentation](assets/images/stripe-api-docs.png)
-<figcaption>https://stripe.com/docs/api</figcaption>
-
-#VSLIDE?image=assets/images/swagger-docs.png
-
-## Make it interactive
-
-#VSLIDE?image=assets/images/v2-migration-guide.png
-
-## Remember your audience
-
-#HSLIDE
-
-# Develop
-
-#VSLIDE
-
-## Keep it Simple
-
-```ruby
-class Api::V2::EscalationPolicyAdapter::Base < ApiDuty::Adapter
-  root_attribute :escalation_policy
-
-  validate :name, validator: :is_string
-  validate :escalation_rules, validator: :is_array
-  validate :description, validator: :is_string
-  validate :num_loops, validator: :is_integer
-  validate :teams, validator: :is_array
-  validate :teams, validator: make_validator_each(
-      make_validator_object_resource(%w(team).freeze)
-    )
-
-  passthrough :name, :description
-  generate :num_repeats, from: :num_loops do |num|
-    num.to_i + 1
-  end
-  generate :escalation_policies_teams_attributes,
-    from: :teams, generator: :teams_join_params
-  generate :escalation_policies_teams_attributes,
-    from: :teams, generator: make_generator_default([])
-end
-```
-
-#VSLIDE
-
-## Keep it Simple
-
-```ruby
-module Api
-  module V2
-    class SchedulesController < Api::V1::SchedulesController
-    end
-  end
-end
-```
-
-<!--
-Schedules controller inheritance
--->
-
-#VSLIDE?image=assets/images/farfalle.jpg
-
-## Be pragmatic
-
-### DRY is not a god
-
-```ruby
-def unwrapped_incident_json
-  # V2+: incident object is wrapped.
-  json[:incident]
-end
-
-def assert_assigned_to_user(json, user)
-  # V2+: assigned_to_user is removed
-  assert_not_include json.keys, ’assigned_to_user’
-end
-
-def assert_reassigned_to_user(json, user)
-  # V2+: assigned_to_user is removed
-  assert_not_include json.keys, ’assigned_to_user’
-end
-
-def assert_incident_count(expected, json)
-  assert_equal(expected, json)
-end
-
-def assert_ile_request_method(incident, request_method)
-  incident.clear_les_log_entries
-  ile = incident.les_log_entries(limit: 1).last
-  assert_equal request_method, ile.request_method
-end
-```
-
-<!--
-DRY is not a god
--->
-
-#HSLIDE
-
-# Test
-
-#VSLIDE?image=assets/images/dogfood.jpg
-
-# Dogfood. Everything.
-
-#VSLIDE
-
-![Make clients use the new version](assets/images/request-v11a.png)
-
-<!--
-A huge advantage to using your own API is that you don’t need to make a single enormous, scary change.
-One of the most beneficial things we did at PagerDuty was set up our v2 API to work exactly like our v1 API, then iterate piece by piece on the changes we needed to make it compliant with the new version goals.
-At the very beginning, then, we switched our internal clients to use the new API version. As we made changes, we’d immediately be implementing them in clients at the same time so we could tell right away if a change didn’t make sense or was more difficult to work with than we’d anticipated.
--->
-
-#VSLIDE
-
-## Automate
-
-![Automated API Testing](assets/images/automated-api-testing.png)
-
-#VSLIDE
-
-## Trust, but Verify
-
-```ruby
-def self.compare_json(old, new, consider_ordering = false)
-  return true if old == new
-
-  old, new = *[old, new].map(&JSON.method(:parse))
-
-  unless consider_ordering
-    # Recursively sort hash keys so the diff ignores ordering
-    original = self.sort_recursively(original)
-    modified = self.sort_recursively(modified)
-
-    # Quick test, in case the sorted hashes are equal
-    return true if original == modified
-  end
-  return false
-end
-```
-
-#HSLIDE
-
-# Connect
-
-#VSLIDE
-
-![PagerCon Talk: API 0 to 30](assets/images/pagercon-talk.jpg)
-
-#VSLIDE
-
-![Evangelize Adapters](assets/images/evangelize-adapters.png)
-
-#VSLIDE?gist=a44681b325f3cc92c02cad3ed12e157e
-
-<!--
-Basic auth deprecation letter
--->
-
-#VSLIDE?gist=7fec9b36bf0bd609204f6614fb5717f3
-
-<figcaption>https://www.pagerduty.com/blog/pagerduty-api-v2-now-in-beta/</figcaption>
-
-<!--
-Have a beta program
--->
-
-#HSLIDE
-
-# Market
-
-#VSLIDE
-
-![v1 docs banner](assets/images/v1-docs-bannerless.png)
-
-#VSLIDE
-
-![v1 docs banner](assets/images/v1-docs-banner.png)
-<figcaption>https://v1.developer.pagerduty.com/</figcaption>
-
-#VSLIDE?video=assets/videos/webinar.mov
-
-## Demonstrate
-
-### webinars
-### sales demos
-### live demos
-### customer success
-
-#VSLIDE
-
-![API v2 Use Metrics](assets/images/v2-use-metrics.png)
-
-#HSLIDE
-
-# What’s next?
-
-#VSLIDE
-
-## Deprecation
-
-![Deprecation plan](assets/images/sunsetting-plan.png)
-
-#VSLIDE?image=assets/images/bff.jpg
-
-## BFF
-
-#VSLIDE
-
-## The Platform Strategy
-
-![PagerDuty Platform Extensibility](assets/images/platform-extensibility.png) <!-- .element: style="margin-bottom:50px;" -->
-
-<figcaption>https://www.pagerduty.com/features/platform-extensibility/</figcaption>
-
-#VSLIDE
-
-<p style="max-width: 700px; margin: 0 auto;">
-![burndown](assets/images/burn-it-down.png)
-![burnup](assets/images/version-burnup.png)
-</p>
-
-#VSLIDE
-
-## It takes a village
-
-![Team](assets/images/team/mosaic.jpg) <!-- .element: style="max-height:70%;width:auto;" -->
-
-#HSLIDE?image=assets/images/never-ending-story.jpg
-
-# Fin?
-
-### developer.pagerduty.com
 
 #HSLIDE
 
