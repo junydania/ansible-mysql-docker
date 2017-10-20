@@ -15,7 +15,6 @@ For the python modules, just run:
 ```bash
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
-pip2 install docker-py
 sudo pip install docker-py
 sudo pip install pyyaml
 ```
