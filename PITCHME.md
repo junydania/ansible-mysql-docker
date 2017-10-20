@@ -1,7 +1,8 @@
 #HSLIDE
 
-## Docker container for MySQL (Percona Server)
-### Without the Frustration (Thanks to Ansible)
+## Docker container for <span style="color:#e49436">MySQL</span> 
+#### Without the Frustration 
+#####(Thanks to <span style="color:#e49436">Ansible</span>)
 
 #VSLIDE?image=assets/images/cali.jpg
 
