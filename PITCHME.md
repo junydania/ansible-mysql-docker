@@ -6,7 +6,7 @@
 
 #VSLIDE?image=assets/images/cali.jpg
 
-### <span style="color:#37342e; background-color:#0e2a3500">Daniel Guzman Burgos</span> 
+### <span style="color:#37342e; background-color:#0e2a357F">Daniel Guzman Burgos</span> 
 ##### <span style="color:#37342e">electronic engineer</span> 
 ##### <span style="color:#37342e">Tech Lead MySQL at Percona in Cali, Colombia</span> 
 ##### <span style="color:#37342e">Managed services POD Team</span> 
