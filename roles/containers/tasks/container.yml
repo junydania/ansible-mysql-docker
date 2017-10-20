@@ -1,0 +1,15 @@
+---
+- name: Create containers
+  docker_container:
+      name: "{{ item }}"
+      image: "percona/percona-server:{{ mysql_image_version }}"
+      hostname: "{{ item }}"
+      detach: yes
+      volumes: 
+        - "{{ role_path }}/my.cnf.{{ item }}:/etc/my.cnf"
+      networks:
+        - name: "{{ docker_network_name }}"
+      env:
+        MYSQL_ALLOW_EMPTY_PASSWORD: yes
+  with_sequence: start=1 end="{{ servers }}" format=mysql%01x
+
