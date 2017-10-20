@@ -1,6 +1,6 @@
 #HSLIDE
 
-## Docker container for <span style="color:#e49436">MySQL</span> 
+## Docker container for <span style="color:#e49436">MySQL</span> Master/Slave
 #### Without the Frustration 
 (Thanks to <span style="color:#e49436">Ansible</span>)
 
@@ -32,8 +32,10 @@
 
 - Percona Server for MySQL® is a free, fully compatible, enhanced, open source drop-in replacement for MySQL <!-- .element: class="fragment" data-fragment-index="1" -->
 
+<p style="max-width: 70%; margin: 0 auto;">
 ![Percona Server](assets/images/percona-server-web.png)
 <figcaption>http://www.percona.com</figcaption>
+</p>
 
 #VSLIDE
 
