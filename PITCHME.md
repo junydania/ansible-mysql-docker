@@ -80,11 +80,7 @@ For infrastructure.
 
 <p style="width: 30%; height:30%; margin: 0 auto;">
 ![Docker](assets/images/docker.png)
-</p>
-<p style="width: 30%; height:30%; margin: 0 auto;">
 ![Vagrant](assets/images/vagrant.png)
-</p>
-<p style="width: 30%; height:30%; margin: 0 auto;">
 ![AWS EC2](assets/images/ec2.jpg)
 </p>
 
