@@ -72,7 +72,7 @@ MySQL’s built-in replication is the foundation for building large, high-perfor
 
 ## Docker because is light
 ### But is not the best option. 
-For infrastructure
+For infrastructure :)
 (For databases)
 
 #VSLIDE
@@ -177,8 +177,8 @@ docker run --name container-name -e MYSQL_ROOT_PASSWORD=secret -d percona/percon
 ## Docker container (for real)
 ### Ingredients
 
-- An image (checked)
-- A network
+- An image (Done!)
+- A network (not done)
 - A shared volume (in this case, just a shared file)
 - An exposed port (MySQL default port: 3306)
 
@@ -221,12 +221,33 @@ docker network create <name>
 ## What is Ansible?
 
 - An IT automation engine
+- Written in Python
+- Idempotent
 - No agents involved
 - Simple language: YAML
 
 ```
-Ansible works by connecting to your nodes and pushing out small programs, called "Ansible modules" to them. These programs are written to be resource models of the desired state of the system. Ansible then executes these modules (over SSH by default), and removes them when finished.
+Ansible works by connecting to your nodes 
+and pushing out small programs, called "Ansible modules" to them. 
+These programs are written to be resource models of the desired state of the system. 
+Ansible then executes these modules (over SSH by default), 
+and removes them when finished.
 ```
+
+#VSLIDE
+
+## Ansible ingredients
+
+- An inventory (list of hosts)
+- A playbook (a bunch of task to execute)
+- A task (a module with parameters)
+- Modules (small python scripts that does the job)
+
+## Ansible requirements
+
+- SSH 
+- Python 
+- Git (this is optional)
 
 #HSLIDE
 
