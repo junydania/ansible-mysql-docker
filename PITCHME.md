@@ -253,6 +253,22 @@ and removes them when finished.
 - Python 
 - Git (this is optional)
 
+#VSLIDE
+
+## What are we using for our playbooks?
+### Modules
+
+- docker_container
+- docker_network
+- docker_image
+- templates
+- command
+- ini_file
+
+#VSLIDE
+
+### A real example works better, so...
+
 #HSLIDE
 
 # Hands on!
@@ -267,7 +283,7 @@ https://github.com/nethalo/ansible-mysql-docker
 # Appendix
 
 #VSLIDE
-
+## Thanks!
 ## WE ARE HIRING!!
 
 https://www.percona.com/careers
