@@ -72,11 +72,33 @@ MySQL’s built-in replication is the foundation for building large, high-perfor
 
 ## Docker because is light
 ### But is not the best option. 
-For infrastructure.
+For infrastructure
+(For databases)
 
 #VSLIDE
 
-## The Trinity
+## What is Docker?
+### Spooky question...
+
+- Not chroot (but isolates)
+- Not LXC (and thus not Jails)
+- For what is worth: is an isolated process. 
+- With an ip. 
+- And resources that can be limited independent (https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt)
+- ...at a very high level.
+
+#VSLIDE
+
+## What is Docker for Mac?
+### It's a hack
+
+- It's a VM running the Linux Alpine distro (https://alpinelinux.org)
+- So technically, the containers still runs on a Linux OS
+- Drawbacks like: The host cannot see the containers via network (though there is https://github.com/moby/vpnkit)
+
+#VSLIDE
+
+## The Trinity (for test env)
 
 <p style="width: 15%; height:15%; margin: 0 auto;">
 ![Docker](assets/images/docker.png)
@@ -147,7 +169,7 @@ https://github.com/percona/percona-docker/blob/master/percona-server/Dockerfile
 
 ## Docker container (for real)
 ```
-docker run
+docker run --name container-name -e MYSQL_ROOT_PASSWORD=secret -d percona/percona-server:tag
 ```
 
 #VSLIDE
@@ -155,7 +177,7 @@ docker run
 ## Docker container (for real)
 ### Ingredients
 
-- An image (check)
+- An image (checked)
 - A network
 - A shared volume (in this case, just a shared file)
 - An exposed port (MySQL default port: 3306)
@@ -172,6 +194,20 @@ docker run
 docker network create <name>
 ```
 
+#VSLIDE
+
+## Volumes
+
+- Shared directories-like
+- We need a custom MySQL Configuration file (To set the binary log options for the replica)
+
+#VSLIDE
+
+## Exposed port
+
+- Port forwarding 
+- So we can connect to MySQL
+
 #HSLIDE
 
 # Ansible
@@ -180,12 +216,17 @@ docker network create <name>
 
 ## Ansible because i'm lazy
 
-<!--
-Design requires decision-making. Especially when it comes to things that on the surface appear purely aesthetic (like an API), everyone will have input.
-In some technical areas, it can be quite valuable to have a decision maker whose head is in the game and can make a final call and move on.
-Even better, outsource your decisions if possible.
--->
+#VSLIDE
 
+## What is Ansible?
+
+- An IT automation engine
+- No agents involved
+- Simple language: YAML
+
+```
+Ansible works by connecting to your nodes and pushing out small programs, called "Ansible modules" to them. These programs are written to be resource models of the desired state of the system. Ansible then executes these modules (over SSH by default), and removes them when finished.
+```
 
 #HSLIDE
 
