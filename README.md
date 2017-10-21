@@ -3,6 +3,8 @@ MySQL Master/Slave(s) with Docker (for Mac) containers
 
 Create a MySQL environment with Docker (for Mac). Single server or a Master and multiple slaves.
 
+See the presentation at: https://gitpitch.com/nethalo/ansible-mysql-docker#/
+
 Requirements
 ------------
 
