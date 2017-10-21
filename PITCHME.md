@@ -228,8 +228,10 @@ docker network create <name>
 
 ```
 Ansible works by connecting to your nodes 
-and pushing out small programs, called "Ansible modules" to them. 
-These programs are written to be resource models of the desired state of the system. 
+and pushing out small programs, 
+called "Ansible modules" to them. 
+These programs are written to be resource models
+of the desired state of the system. 
 Ansible then executes these modules (over SSH by default), 
 and removes them when finished.
 ```
@@ -242,6 +244,8 @@ and removes them when finished.
 - A playbook (a bunch of task to execute)
 - A task (a module with parameters)
 - Modules (small python scripts that does the job)
+
+#VSLIDE
 
 ## Ansible requirements
 
